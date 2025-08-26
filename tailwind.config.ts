@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        body: ['Raleway', 'sans-serif'],
+        headline: ['Raleway', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
@@ -88,10 +88,29 @@ export default {
             height: '0',
           },
         },
+        spin: {
+          from: {
+            transform: 'rotate(0deg)',
+          },
+          to: {
+            transform: 'rotate(360deg)',
+          },
+        },
+        "marquee-rtl": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        "marquee-rtl2": {
+            "0%": { transform: "translateX(100%)" },
+            "100%": { transform: "translateX(0)" },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'spin-slow': 'spin 5s linear infinite',
+        "marquee-rtl": "marquee-rtl var(--marquee-duration) linear infinite",
+        "marquee-rtl2": "marquee-rtl2 var(--marquee-duration) linear infinite",
       },
     },
   },
