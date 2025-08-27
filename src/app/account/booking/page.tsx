@@ -33,7 +33,7 @@ const bookingFormSchema = z.object({
 
 type BookingFormValues = z.infer<typeof bookingFormSchema>
 
-export default function AccountBookingPage() {
+function AccountBookingPageContent() {
     const router = useRouter();
     const searchParams = useSearchParams()
     const { toast } = useToast()
@@ -294,3 +294,11 @@ export default function AccountBookingPage() {
     );
 }
 
+
+export default function AccountBookingPage() {
+    return (
+        <React.Suspense fallback={<div>Loading...</div>}>
+            <AccountBookingPageContent />
+        </React.Suspense>
+    )
+}
