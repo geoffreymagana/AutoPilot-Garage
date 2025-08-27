@@ -46,36 +46,36 @@ export default function LandingPage() {
   const testimonials = [
     {
       name: 'Alex Mwangi',
-      vehicle: 'BMW S1000RR',
-      logo: '/logos/bmw.svg',
-      text: "The Power Commander tune transformed my bike's performance. The team really knows their stuff when it comes to sport bikes. Highly recommended!",
+      vehicle: 'BMW',
+      logo: '/images/testimonials/bmw-logo-2020-gray-download.png',
+      text: "The Power Commander tune transformed my BMW's performance. The team really knows their stuff when it comes to cars. Highly recommended!",
       rating: 5,
     },
     {
       name: 'Brenda Chepkoech',
-      vehicle: 'Yamaha R1',
-      logo: '/logos/yamaha.svg',
-      text: "Found the perfect Öhlins suspension setup for my R1. The website made it easy to find exactly what I needed, and shipping was super fast!",
+      vehicle: 'Mitsubishi',
+      logo: '/images/testimonials/mitsubishi-logo.png',
+      text: "Got the perfect Öhlins suspension setup for my Mitsubishi.",
       rating: 5,
     },
     {
       name: 'David Ochieng',
-      vehicle: 'Ducati Panigale V4',
-      logo: '/logos/ducati.svg',
-      text: 'The Akrapovič exhaust system is amazing! The team helped me choose the perfect setup and the sound is incredible. My Panigale has never felt better!',
+      vehicle: 'Lexus',
+      logo: '/images/testimonials/lexus-logo.png',
+      text: 'The new exhaust system is amazing! The team helped me choose the perfect setup and the sound is incredible. My Lexus has never felt better!',
       rating: 5,
     },
      {
       name: 'Mary Wambui',
       vehicle: 'Toyota Prado',
-      logo: '/logos/toyota.svg',
+      logo: '/images/testimonials/toyota-logo-2020-europe-download.png',
       text: 'AutoPilot Garage is the best in Nairobi! They fixed my car in no time and the price was very reasonable. The real-time tracking is a game-changer.',
       rating: 5,
     },
     {
       name: 'James Karanja',
       vehicle: 'Mercedes-Benz C-Class',
-      logo: '/logos/mercedes.svg',
+      logo: '/images/testimonials/mercedes-benz-logo.png',
       text: 'I love the transparency. Seeing photos of the repair process gave me so much peace of mind. Highly recommend!',
       rating: 5,
     },
@@ -109,7 +109,7 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[600px] w-full">
         <Image
-          src="/images/main/hero-image.jpg"
+          src="/images/main/car engine.jpg"
           alt="Modern auto garage in Kenya"
           data-ai-hint="auto garage"
           fill
@@ -184,7 +184,7 @@ export default function LandingPage() {
               What Our Customers Say
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              We're proud of our work, and our Kenyan customers are too.
+              We're proud of our work, and our customers are too.
             </p>
           </div>
           <Carousel
@@ -216,7 +216,7 @@ export default function LandingPage() {
                           alt={`${testimonial.name}'s vehicle logo`}
                           width={48}
                           height={48}
-                          className="rounded-full bg-muted object-contain p-1"
+                          className="rounded-full bg-none object-contain p-1"
                         />
                         <div>
                           <CardTitle className="text-base font-bold">{testimonial.name}</CardTitle>

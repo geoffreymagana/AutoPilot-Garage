@@ -11,13 +11,16 @@ import { Button } from "@/components/ui/button";
 import { Download, Printer, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { useParams } from "next/navigation";
 
-export default function AppointmentDetailPage({ params }: { params: { id: string } }) {
+export default function AppointmentDetailPage() {
   const workOrderRef = useRef<HTMLDivElement>(null);
+  const params = useParams();
+  const id = params.id as string;
 
-  // In a real app, you would fetch this data based on the params.id
+  // In a real app, you would fetch this data based on the id
   const appointmentDetails = {
-    id: params.id,
+    id: id,
     date: "2024-07-25",
     vehicle: "Toyota Prado - KDA 123B",
     customer: "Alex Mwangi",
@@ -33,26 +36,6 @@ export default function AppointmentDetailPage({ params }: { params: { id: string
     vat: 1920,
     total: 13920,
     notes: "Customer reported grinding noise when braking. Front pads were worn to 2mm. Rotors resurfaced."
-  };
-
-  const handlePrint = () => {
-    const node = workOrderRef.current;
-    if (node) {
-      const printWindow = window.open('', '_blank');
-      printWindow?.document.write('<html><head><title>Work Order</title>');
-      // You would link to your stylesheet here
-      printWindow?.document.write('<link rel="stylesheet" href="/globals.css" type="text/css" />');
-      printWindow?.document.write('</head><body>');
-      printWindow?.document.write(node.innerHTML);
-      printWindow?.document.write('</body></html>');
-      printWindow?.document.close();
-      printWindow?.focus();
-      // Use a timeout to ensure styles are loaded before printing
-      setTimeout(() => {
-        printWindow?.print();
-        printWindow?.close();
-      }, 500);
-    }
   };
 
   const handleDownload = () => {

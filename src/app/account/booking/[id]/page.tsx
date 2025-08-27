@@ -2,7 +2,7 @@
 "use client";
 
 import * as React from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -11,22 +11,26 @@ import { ArrowLeft, Calendar, Car, Info, Loader2, DollarSign, Trash2 } from "luc
 import { Badge } from "@/components/ui/badge";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 
-export default function BookingDetailsPage({ params }: { params: { id: string } }) {
+export default function BookingDetailsPage() {
     const router = useRouter();
+    const params = useParams();
+    const bookingId = params.id as string;
     const { toast } = useToast();
     const [appointment, setAppointment] = React.useState<any>(null);
 
     React.useEffect(() => {
-        const storedAppointments = JSON.parse(localStorage.getItem('confirmedAppointments') || '[]');
-        const currentAppointment = storedAppointments.find((appt: any) => appt.id === params.id);
-        if (currentAppointment) {
-            setAppointment(currentAppointment);
+        if (bookingId) {
+            const storedAppointments = JSON.parse(localStorage.getItem('confirmedAppointments') || '[]');
+            const currentAppointment = storedAppointments.find((appt: any) => appt.id === bookingId);
+            if (currentAppointment) {
+                setAppointment(currentAppointment);
+            }
         }
-    }, [params.id]);
+    }, [bookingId]);
 
     const handleCancelAppointment = () => {
         const storedAppointments = JSON.parse(localStorage.getItem('confirmedAppointments') || '[]');
-        const updatedAppointments = storedAppointments.filter((appt: any) => appt.id !== params.id);
+        const updatedAppointments = storedAppointments.filter((appt: any) => appt.id !== bookingId);
         localStorage.setItem('confirmedAppointments', JSON.stringify(updatedAppointments));
         toast({
             title: "Appointment Cancelled",

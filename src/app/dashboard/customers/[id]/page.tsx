@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator";
 import { ChevronLeft, Mail, Phone, Car, PlusCircle } from "lucide-react";
 import Link from "next/link";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { useParams } from "next/navigation";
 
 
 const mockCustomer = {
@@ -34,8 +35,10 @@ const mockCustomer = {
     ]
 };
 
-export default function CustomerDetailPage({ params }: { params: { id: string } }) {
-  // In a real app, you would fetch customer data based on params.id
+export default function CustomerDetailPage() {
+  const params = useParams();
+  const id = params.id as string;
+  // In a real app, you would fetch customer data based on the id
   const customer = mockCustomer;
 
   return (
@@ -112,7 +115,7 @@ export default function CustomerDetailPage({ params }: { params: { id: string } 
                                 {customer.serviceHistory.map(item => (
                                     <TableRow key={item.invoiceId}>
                                         <TableCell className="font-medium">
-                                            <Link href={`/dashboard/appointments/${item.invoiceId}`} className="text-primary hover:underline">
+                                            <Link href={`/dashboard/appointments/${item.invoiceId.replace('INV-', 'APP-')}`} className="text-primary hover:underline">
                                                 {item.invoiceId}
                                             </Link>
                                         </TableCell>

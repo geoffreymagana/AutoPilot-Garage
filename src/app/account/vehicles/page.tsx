@@ -15,10 +15,10 @@ export default function MyVehiclesPage() {
     const vehicles = [
         {
             make: "Toyota",
-            model: "Prado",
+            model: "Fourth-gen Toyota Land Cruiser Prado",
             year: "2018",
             licensePlate: "KDA 123B",
-            imageUrl: "/images/main/vehicle-1.jpg",
+            imageUrl: "/images/vehicles/toyota prado.webp",
             lastService: "2024-05-20"
         }
     ];

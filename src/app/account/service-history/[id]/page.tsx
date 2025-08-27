@@ -1,15 +1,20 @@
 
+"use client";
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Download, Printer, ChevronLeft } from "lucide-react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
-export default function ServiceDetailPage({ params }: { params: { id: string } }) {
-  // In a real app, you would fetch this data based on the params.id
+export default function ServiceDetailPage() {
+  const params = useParams();
+  const id = params.id as string;
+  // In a real app, you would fetch this data based on the id
   const serviceDetails = {
-    invoiceId: "INV-0012",
+    invoiceId: id,
     date: "2024-05-20",
     vehicle: "Toyota Prado - KDA 123B",
     status: "Completed & Paid",

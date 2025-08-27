@@ -8,37 +8,37 @@ export default function AboutUsPage() {
     {
       name: 'Michael Otieno',
       role: 'Lead Mechanic & Founder',
-      avatar: 'https://picsum.photos/400/500',
+      avatar: '/images/about/Michael Otieno.png',
       backgroundClass: 'bg-yellow-300',
     },
     {
       name: 'Fatima Ahmed',
       role: 'Diagnostics Specialist',
-      avatar: 'https://picsum.photos/400/501',
+      avatar: '/images/about/Fatima Ahmed.png',
       backgroundClass: 'bg-green-300',
     },
     {
       name: 'Peter Kariuki',
       role: 'Customer Service Manager',
-      avatar: 'https://picsum.photos/400/502',
+      avatar: '/images/about/Peter Kariuki.png',
       backgroundClass: 'bg-pink-300',
     },
     {
       name: 'Grace Wanjiru',
       role: 'Lead Technician',
-      avatar: 'https://picsum.photos/400/503',
+      avatar: '/images/about/Grace Wanjiru.png',
       backgroundClass: 'bg-blue-300',
     },
      {
       name: 'John Doe',
       role: 'Marketing Head',
-      avatar: 'https://picsum.photos/400/504',
+      avatar: '/images/about/John Doe.png',
       backgroundClass: 'bg-indigo-300',
     },
      {
       name: 'Jane Smith',
       role: 'Operations Manager',
-      avatar: 'https://picsum.photos/400/505',
+      avatar: '/images/about/Jane Smith.png',
       backgroundClass: 'bg-orange-300',
     },
   ];
@@ -63,7 +63,7 @@ export default function AboutUsPage() {
           </p>
         </div>
         <div className="relative h-80 rounded-lg overflow-hidden">
-             <Image src="https://picsum.photos/600/400" alt="AutoPilot Garage workshop" data-ai-hint="mechanic team" fill className="object-cover" />
+             <Image src="/images/about/oil change.jpg" alt="AutoPilot Oil Change" data-ai-hint="mechanic team" fill className="object-cover" />
         </div>
       </div>
 
@@ -121,7 +121,7 @@ export default function AboutUsPage() {
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
           {teamMembers.map((member) => (
             <div key={member.name} className="text-left">
-                <div className={cn("relative w-full aspect-[4/5] overflow-hidden", member.backgroundClass)}>
+                <div className={cn("relative w-full aspect-[5/5] overflow-hidden", member.backgroundClass)}>
                     <Image src={member.avatar} alt={member.name} width={400} height={500} className="object-contain object-bottom" data-ai-hint="team member"/>
                 </div>
                 <h3 className="mt-4 text-xl font-bold">{member.name}</h3>
